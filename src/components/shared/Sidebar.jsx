@@ -23,9 +23,9 @@ const Sidebar = () => {
             </h1>
           </li>
 
-          <li className={`p-4 ${secondaryColor} rounded-tl-xl rounded-bl-xl`}>
+          <li className={`p-4 bg-[#262837] rounded-tl-xl rounded-bl-xl`}>
             <a
-              className={`rounded-tl-xl ${primaryColor} rounded-xl p-4 flex justify-center`}
+              className={`rounded-tl-xl bg-[#ec7c6a] rounded-xl p-4 flex justify-center`}
               href="#"
             >
               <RiHome6Line className="text-2xl text-white" />
@@ -33,66 +33,66 @@ const Sidebar = () => {
           </li>
 
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiPercentLine
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
 
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiPieChart2Line
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
 
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiMailUnreadLine
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
 
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiNotification2Line
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
 
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiSettings3Line
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
@@ -102,14 +102,14 @@ const Sidebar = () => {
       <div>
         <ul className="pl-4 cursor-pointer">
           <li
-            className={`hover:${secondaryColor} p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
+            className={`hover:bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl group transition-colors`}
           >
             <a
-              className={`group-hover:${primaryColor} rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
+              className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
               <RiLogoutBoxLine
-                className={`text-2xl text-${primaryColorText} group-hover:text-white transition-colors`}
+                className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
           </li>
