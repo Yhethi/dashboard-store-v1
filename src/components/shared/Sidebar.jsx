@@ -8,13 +8,19 @@ import {
   RiSettings3Line,
   RiLogoutBoxLine,
 } from "react-icons/ri";
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const { showMenu } = props;
+
   let primaryColor = "bg-[#ec7c6a]";
   let secondaryColor = "bg-[#262837]";
   let primaryColorText = "[#ec7c6a]";
 
   return (
-    <div className="bg-[#1F1D2B] fixed top-0 left-0 w-28 h-full flex flex-col justify-between py-6 rounded-tr-xl rounded-br-xl">
+    <div
+      className={`${
+        showMenu ? "left-0" : "-left-full"
+      } bg-[#1F1D2B] fixed top-0 lg:left-0 w-28 h-full flex flex-col justify-between py-6 rounded-tr-xl rounded-br-xl z-50 transition-all`}
+    >
       <div>
         <ul className="pl-4 cursor-pointer">
           <li>
