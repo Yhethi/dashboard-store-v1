@@ -7,11 +7,17 @@ import {
   RiCloseFill,
   RiSearch2Line,
   RiArrowDownSLine,
+  RiDeleteBin6Line,
 } from "react-icons/ri";
 // Components
 import Sidebar from "./components/shared/Sidebar";
 // Hooks
 import { useState } from "react";
+import { render } from "react-dom";
+import CartProduct from "./components/shared/CartProduct";
+
+import * as ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,6 +31,30 @@ function App() {
     setShowOrder(!showOrder);
   };
 
+  const enviarCarrito = (product) => {
+    console.log(product);
+
+    if (product.target.tagName == "DIV") {
+      product = product.target.parentNode.children[0];
+      let pImg = product.children[0].src;
+      let pName = product.children[1].textContent;
+      let pPrice = product.children[2].textContent;
+
+      const rootElement = document.getElementById("cardContent");
+      const root = createRoot(rootElement);
+      root.render(<CartProduct image={pImg} name={pName} precio={pPrice} />);
+    } else {
+      product = product.target.parentNode;
+      let pImg = product.children[0].src;
+      let pName = product.children[1].textContent;
+      let pPrice = product.children[2].textContent;
+
+      const rootElement = document.getElementById("cardContent");
+      const root = createRoot(rootElement);
+      root.render(<CartProduct image={pImg} name={pName} precio={pPrice} />);
+    }
+  };
+
   return (
     <div className="bg-[#262837] w-full min-h-screen p-4">
       <Sidebar showMenu={showMenu} />
@@ -36,8 +66,16 @@ function App() {
         <button className="p-2">
           <RiUser3Fill />
         </button>
-        <button className="p-2">
-          <RiPieChart2Line />
+        <button
+          onClick={() => {
+            if (showMenu == true) {
+              toggleMenu();
+            }
+            toggleOrder();
+          }}
+          className="p-2"
+        >
+          {showOrder ? <RiCloseFill /> : <RiPieChart2Line />}
         </button>
         <button onClick={toggleMenu} className="text-white p-2">
           {showMenu ? <RiCloseFill /> : <RiMenu3Fill />}
@@ -103,70 +141,430 @@ function App() {
             </button>
           </div>
           {/* Content */}
-          <div className="grid grid-cols-1 gap-16 p-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-16 p-8 md:grid-cols-2 lg:grid-cols-3 lg:h-[68vh] lg:py-16 lg:overflow-y-scroll">
             {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower2</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower3</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower4</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower5</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower6</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower7</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower8</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(e) => {
+                // console.log(e.target.parentNode.children[0]);
+                enviarCarrito(e);
+              }}
+            >
+              <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
+                <img
+                  src="comida.png"
+                  className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
+                />
+                <p className="text-xl">Akira Tower9</p>
+                <span className="text-gray-400">$2.29</span>
+                <p className="text-gray-600">20 Stock Avaliable</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        {/* Orders */}
+        <div
+          className={`${
+            showOrder ? "right-0" : "-right-full"
+          } lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1F1D2B] w-full lg:h-[92vh] h-full transition-all`}
+        >
+          <div className="relative pt-16 text-gray-300 p-8 h-full">
+            <RiCloseFill
+              onClick={() => {
+                toggleOrder();
+              }}
+              className="absolute top-4 left-4 lg:-top-40  p-3 box-content bg-[#262837] text-gray-100 rounded-full"
+            />
+            <h1 className="text-2xl my-4 ">Orders #151416</h1>
+            {/* Tabs Buttons */}
+            <div className="flex items-center gap-4 flex-wrap mb-8">
+              <button className="bg-[#ec7c6a] text-white rounded-xl py-2 px-4">
+                Dine Inc
+              </button>
+              <button className="border-gray-500 border text-white rounded-xl py-2 px-4">
+                To go
+              </button>
+              <button className="border-gray-500 border text-white rounded-xl py-2 px-4">
+                Delivery
+              </button>
             </div>
-            {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
+            {/* Cart Products */}
+            <div className="h-[450px] overflow-x-hidden overflow-y-scroll mb-70 flex flex-col gap-3 box-content">
+              <div className="grid grid-cols-6 pb-4">
+                <h5 className="col-span-4">Title</h5>
+                <h5>Qty</h5>
+                <h5>Price</h5>
+              </div>
+              {/* Card */}
+              <div id="cardContent" className="transition-all">
+                <div className="bg-[#262837] p-4 rounded-xl hover:scale-110 transition-all">
+                  <div className="grid grid-cols-6 pb-4">
+                    <div className="flex items-center col-span-4 gap-3">
+                      <img
+                        src="comida.png"
+                        className="w-10 h-10 object-cover"
+                      />
+                      <div className="">
+                        <h5 className="text-ms">Akira Tower</h5>
+                        <p className="text-xs text-gray-500">$2.29</p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-center bg-[#FFFFFF22] h-full flex flex-col justify-center rounded-xl">
+                        2
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-center flex flex-col justify-center h-full ">
+                        4.58$
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    <form className="col-span-5">
+                      <input
+                        type="text"
+                        className="bg-[#1F1D2B] p-2 rounded-lg text-gray-300 w-full outline-none"
+                        placeholder="Order note..."
+                      />
+                    </form>
+                    <div className="flex justify-center border border-red-600 rounded-md bg-[#ff000005]">
+                      <button>
+                        <RiDeleteBin6Line className="p-3 box-content text-red-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cardContent" className="transition-all">
+                <div className="bg-[#262837] p-4 rounded-xl hover:scale-110 transition-all">
+                  <div className="grid grid-cols-6 pb-4">
+                    <div className="flex items-center col-span-4 gap-3">
+                      <img
+                        src="comida.png"
+                        className="w-10 h-10 object-cover"
+                      />
+                      <div className="">
+                        <h5 className="text-ms">Akira Tower</h5>
+                        <p className="text-xs text-gray-500">$2.29</p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-center bg-[#FFFFFF22] h-full flex flex-col justify-center rounded-xl">
+                        2
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-center flex flex-col justify-center h-full ">
+                        4.58$
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    <form className="col-span-5">
+                      <input
+                        type="text"
+                        className="bg-[#1F1D2B] p-2 rounded-lg text-gray-300 w-full outline-none"
+                        placeholder="Order note..."
+                      />
+                    </form>
+                    <div className="flex justify-center border border-red-600 rounded-md bg-[#ff000005]">
+                      <button>
+                        <RiDeleteBin6Line className="p-3 box-content text-red-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cardContent" className="transition-all">
+                <div className="bg-[#262837] p-4 rounded-xl hover:scale-110 transition-all">
+                  <div className="grid grid-cols-6 pb-4">
+                    <div className="flex items-center col-span-4 gap-3">
+                      <img
+                        src="comida.png"
+                        className="w-10 h-10 object-cover"
+                      />
+                      <div className="">
+                        <h5 className="text-ms">Akira Tower</h5>
+                        <p className="text-xs text-gray-500">$2.29</p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-center bg-[#FFFFFF22] h-full flex flex-col justify-center rounded-xl">
+                        2
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-center flex flex-col justify-center h-full ">
+                        4.58$
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    <form className="col-span-5">
+                      <input
+                        type="text"
+                        className="bg-[#1F1D2B] p-2 rounded-lg text-gray-300 w-full outline-none"
+                        placeholder="Order note..."
+                      />
+                    </form>
+                    <div className="flex justify-center border border-red-600 rounded-md bg-[#ff000005]">
+                      <button>
+                        <RiDeleteBin6Line className="p-3 box-content text-red-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cardContent" className="transition-all">
+                <div className="bg-[#262837] p-4 rounded-xl hover:scale-110 transition-all">
+                  <div className="grid grid-cols-6 pb-4">
+                    <div className="flex items-center col-span-4 gap-3">
+                      <img
+                        src="comida.png"
+                        className="w-10 h-10 object-cover"
+                      />
+                      <div className="">
+                        <h5 className="text-ms">Akira Tower</h5>
+                        <p className="text-xs text-gray-500">$2.29</p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-center bg-[#FFFFFF22] h-full flex flex-col justify-center rounded-xl">
+                        2
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-center flex flex-col justify-center h-full ">
+                        4.58$
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    <form className="col-span-5">
+                      <input
+                        type="text"
+                        className="bg-[#1F1D2B] p-2 rounded-lg text-gray-300 w-full outline-none"
+                        placeholder="Order note..."
+                      />
+                    </form>
+                    <div className="flex justify-center border border-red-600 rounded-md bg-[#ff000005]">
+                      <button>
+                        <RiDeleteBin6Line className="p-3 box-content text-red-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cardContent" className="transition-all">
+                <div className="bg-[#262837] p-4 rounded-xl hover:scale-110 transition-all">
+                  <div className="grid grid-cols-6 pb-4">
+                    <div className="flex items-center col-span-4 gap-3">
+                      <img
+                        src="comida.png"
+                        className="w-10 h-10 object-cover"
+                      />
+                      <div className="">
+                        <h5 className="text-ms">Akira Tower</h5>
+                        <p className="text-xs text-gray-500">$2.29</p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-center bg-[#FFFFFF22] h-full flex flex-col justify-center rounded-xl">
+                        2
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-center flex flex-col justify-center h-full ">
+                        4.58$
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    <form className="col-span-5">
+                      <input
+                        type="text"
+                        className="bg-[#1F1D2B] p-2 rounded-lg text-gray-300 w-full outline-none"
+                        placeholder="Order note..."
+                      />
+                    </form>
+                    <div className="flex justify-center border border-red-600 rounded-md bg-[#ff000005]">
+                      <button>
+                        <RiDeleteBin6Line className="p-3 box-content text-red-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <CartProduct /> */}
             </div>
-            {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
-            </div>
-            {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
-            </div>
-            {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
-            </div>
-            {/* Card */}
-            <div className="bg-[#1F1D2B] text-center rounded-2xl flex flex-col items-center text-gray-300 gap-1 font-bold p-8">
-              <img
-                src="comida.png"
-                className="w-40 h-40 object-cover -mt-20 shadow-3xl rounded-full"
-              />
-              <p className="text-xl">Akira Tower</p>
-              <span className="text-gray-400">$2.29</span>
-              <p className="text-gray-600">20 Stock Avaliable</p>
+            {/* Submnit payment */}
+            <div className="absolute w-full bottom-0 left-0 bg-[#262837] p-4 border-t border-t-[#ec7c6a]">
+              <div className="flex item-center justify-between text-gray-400 mb-3">
+                <span className="text-gray-300">Discount</span>
+                <span>$0</span>
+              </div>
+              <div className="flex item-center justify-between text-gray-400 mb-3">
+                <span className="text-gray-300">Sub Total</span>
+                <span>$20.01</span>
+              </div>
+              <div>
+                <button className="w-full py-2 rounded-lg bg-[#ec7c6a] hover:bg-[#ffbfb5] hover:text-black transition-all">
+                  Chekout Order
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="lg:col-span-2 fixed lg:static right-0">Carrito</div>
       </main>
     </div>
   );
