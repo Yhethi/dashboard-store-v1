@@ -7,10 +7,11 @@ import {
   RiNotification2Line,
   RiSettings3Line,
   RiLogoutBoxLine,
+  RiSettingsLine,
 } from "react-icons/ri";
+
 const Sidebar = (props) => {
   const { showMenu } = props;
-
   let primaryColor = "bg-[#ec7c6a]";
   let secondaryColor = "bg-[#262837]";
   let primaryColorText = "[#ec7c6a]";
@@ -97,7 +98,7 @@ const Sidebar = (props) => {
               className={`group-hover:bg-[#ec7c6a] rounded-tl-xl rounded-xl p-4 flex justify-center transition-colors`}
               href="#"
             >
-              <RiSettings3Line
+              <RiSettingsLine
                 className={`text-2xl text-[#ec7c6a] group-hover:text-white transition-colors`}
               />
             </a>
